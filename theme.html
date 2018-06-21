@@ -1,0 +1,99 @@
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>Saigon Ship</h2>
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#home"><i style="font-size:24px" class="fa">&#xf015;</i></a></li>
+    <li><a href="#ios"><i style="font-size:24px" class="fa">&#xf179;</i></a></li>
+    <li><a href="#android"><i style="font-size:24px" class="fa">&#xf17b;</i></a></li>
+    <li><a href="#user"><i style="font-size:24px" class="fa">&#xf2be;</i></a></li>
+  </ul>
+
+  <div class="tab-content">
+
+    <!-- Tab All -->
+    <div id="home" class="tab-pane fade in active">
+      <h3>Notification All Device</h3>
+      <form id="tab" action="send_notification.php" method='post'>
+            <label>Title</label>
+            <input type="text" name="title" class="input-xlarge" style="height: 35px;">
+            <label>Body</label>
+            <input type="text" name="body" class="input-xlarge" style="height: 35px;">
+            <label>Chọn Người Gửi</label>
+            <select name="DropDownTimezone" id="DropDownTimezone" class="input-xlarge">
+              <option>IOS&ANDROID</option>
+            </select>
+          	<div>
+        	    <button type="submit" name="Submit" class="btn btn-primary">Send</button>
+        	</div>
+        </form>
+    </div>
+    <!-- Tab All -->
+
+    <!-- Tab IOS -->
+    <div id="ios" class="tab-pane fade">
+      <h3>Notification IOS</h3>
+      <form id="tab" action="send_notification.php" method='post'>
+            <label>Title</label>
+            <input type="text" name="title" class="input-xlarge" style="height: 35px;">
+            <label>Body</label>
+            <input type="text" name="body" class="input-xlarge" style="height: 35px;">
+          	<div>
+        	    <button type="submit" name="Submit" class="btn btn-primary">Send</button>
+        	</div>
+        </form>
+    </div>
+    <!-- Tab IOS -->
+
+    <!-- Tab Android -->
+    <div id="android" class="tab-pane fade">
+      <h3>Notification Android</h3>
+      <form id="tab" action="send_notification.php" method='post'>
+            <label>Title</label>
+            <input type="text" name="title" class="input-xlarge" style="height: 35px;">
+            <label>Body</label>
+            <input type="text" name="body" class="input-xlarge" style="height: 35px;">
+          	<div>
+        	    <button type="submit" name="Submit" class="btn btn-primary">Send</button>
+        	</div>
+        </form>
+    </div>
+    <!-- Tab Android -->
+
+    <!-- Tab User -->
+    <div id="user" class="tab-pane fade">
+      <h3>Notification User</h3>
+      <form id="tab" action="send_notification.php" method='post'>
+            <label>Title</label>
+            <input type="text" name="title" class="input-xlarge" style="height: 35px;">
+            <label>Body</label>
+            <input type="text" name="body" class="input-xlarge" style="height: 35px;">
+            <label>Chọn Người Gửi</label>
+            <select name="DropDownTimezone" id="DropDownTimezone" class="input-xlarge">
+              <option value="-12.0">(GMT -12:00) Eniwetok, Kwajalein</option>
+            </select>
+          	<div>
+        	    <button type="submit" name="Submit" class="btn btn-primary">Send</button>
+        	</div>
+        </form>
+    </div>
+    <!-- Tab User -->
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
