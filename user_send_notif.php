@@ -18,7 +18,6 @@
   while($row = mysqli_fetch_array($result))
   {
     $options = $options."<option>$row[token]</option>";
-    // print_r($result);
   }
   $row = mysqli_fetch_row($result);
   $key = isset($_POST['DropDownTimezone']) ? $_POST['DropDownTimezone'] : $row[0];
@@ -91,10 +90,6 @@ if(!empty($_POST))
             <input type="text" name="title" class="input-xlarge" style="height: 35px;">
             <label>Body</label>
             <input type="text" name="body" class="input-xlarge" style="height: 35px;">
-            <label>Chọn Người Gửi</label>
-            <select name="DropDownTimezone" id="DropDownTimezone" class="input-xlarge">
-              <?php echo $options;?>
-            </select>
           	<div>
         	    <button type="submit" name="Submit" class="btn btn-primary">Send</button>
         	</div>
@@ -105,7 +100,7 @@ if(!empty($_POST))
     <!-- Tab IOS -->
     <div id="ios" class="tab-pane fade">
       <h3>Notification IOS</h3>
-      <form id="tab" action="user_send_notif.php" method='post'>
+      <form id="tab" action="send_ios_notifi.php" method='post'>
             <label>Title</label>
             <input type="text" name="title" class="input-xlarge" style="height: 35px;">
             <label>Body</label>
@@ -120,7 +115,7 @@ if(!empty($_POST))
     <!-- Tab Android -->
     <div id="android" class="tab-pane fade">
       <h3>Notification Android</h3>
-      <form id="tab" action="user_send_notif.php" method='post'>
+      <form id="tab" action="send_android_notifi.php" method='post'>
             <label>Title</label>
             <input type="text" name="title" class="input-xlarge" style="height: 35px;">
             <label>Body</label>

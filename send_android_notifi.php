@@ -11,14 +11,14 @@
 
   $path_to_fcm = 'https://fcm.googleapis.com/fcm/send';
   $server_key = 'AAAAPe_-vpM:APA91bG56uQ5iYiJ5n7xrZq4BxvlTrRzzQF3tLWPdNwXSJPgy3ESHXn1KP-isI-bg3mExgZzpPc5BwwLE4Kb7XUAjXc_y3jOFctaCRyAFRsWCEQrPAzs0_v9gi539cT7mhk4Vb3vdWYV';
-  $sql = "select token from fcm_info";
+  $sql = "select tokenAndroid from fcm_info";
   $result = mysqli_query($con,$sql);
 
   $key = [];
   if( isset($_POST["Submit"])) {
     while($row=mysqli_fetch_assoc($result))
     {
-      $key[] = $row["token"];
+      $key[] = $row["tokenAndroid"];
     }
   };
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 21, 2018 lúc 04:12 PM
+-- Thời gian đã tạo: Th6 22, 2018 lúc 06:47 AM
 -- Phiên bản máy phục vụ: 10.1.32-MariaDB
 -- Phiên bản PHP: 5.6.36
 
@@ -31,18 +31,17 @@ SET time_zone = "+00:00";
 CREATE TABLE `fcm_info` (
   `id` int(255) NOT NULL,
   `token` varchar(10000) COLLATE utf8_unicode_ci NOT NULL,
-  `nameuser` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `nameuser` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `tokenAndroid` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
+  `tokenIOS` varchar(10000) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `fcm_info`
 --
 
-INSERT INTO `fcm_info` (`id`, `token`, `nameuser`) VALUES
-(1, 'c3HiUKsNzeE:APA91bEU4cqSXZQyrTw-8Xleqj_ttHa1D-olQ20wPGrY5xki4K4uf5VPTrvBM7hDpH04trNvp6aYCTCyqi1CMHVc5ka_5XyBBIO5daJABMFVavbOnu59mjsisWFB3lBqlnlaSNLvfVdb7c0dwGr55OLP0EtmQGE0tQ', 'duy'),
-(2, 'f1u9lJDS6o0:APA91bEDjKUm8rOmPREhiKCc6WBNred23kEPJRhVyzBr8Y8ihi9ywL_8SnHSH2hgGvHG9_llrWyQUMTa0ac5s-ic7pigBBOvQsVfYY8Qp5BouBrXf0RRj1CF_H9lB6kTY1gChDm06aMJqvVe3Ro4Vc9Zr3hI0aAhjA', 'tab10'),
-(3, 'cOEA5SG7VB8:APA91bFNZ8sqJ1DNPUQtpLvYAMYqJwAqeH2zywMMXPIei_b411W0hq7dxuOj_x28SVGwksCEv4wpaxNerhChMF2Cqt8kl1lECtp-evmZkiqySNPblQuVVqfAsToviyA2zTmtDAr3Qp1aZLQ8VBOEDnFjWQg6iMgIVw', 'phone4.4'),
-(4, '841415151', '');
+INSERT INTO `fcm_info` (`id`, `token`, `nameuser`, `tokenAndroid`, `tokenIOS`) VALUES
+(1, 'fdbpiPNZt3Q:APA91bGxOctloV7bWTbdTSIc8G2v4779L6qNJBEznON5HA5TnXmgc-2Puqk5gkDTk7V1BryX85UMPrfFxcizx-Uz64yJ_uLfXWgZ6ppHXZiKHg5kSBpBRRk3c4yqywVwvxyi5HhyKqVUlXaNh0Luoiuk6ucPpCIx_A', '', 'fdbpiPNZt3Q:APA91bGxOctloV7bWTbdTSIc8G2v4779L6qNJBEznON5HA5TnXmgc-2Puqk5gkDTk7V1BryX85UMPrfFxcizx-Uz64yJ_uLfXWgZ6ppHXZiKHg5kSBpBRRk3c4yqywVwvxyi5HhyKqVUlXaNh0Luoiuk6ucPpCIx_A', 'dIDPaPlvebw:APA91bGqaulISFFpoFiSFit7kTr_ITdlH3cqdzqwtf7PTUwjB0FrHT_fKPG7ywTp_Y3N-eHSBp6ryW_3oFMm-Y2rorkL1TvmJAO5Ch13tAjaCP1ZNDQwum_fvS9OtjmxDzehMtTSPg9F_t-CcJJV_fT42wafAxOjnQ');
 
 -- --------------------------------------------------------
 
@@ -62,8 +61,13 @@ CREATE TABLE `fcm_notifi` (
 
 INSERT INTO `fcm_notifi` (`id`, `title`, `body`) VALUES
 (1, 'title message', 'body message'),
-(2, 'title message', 'body message'),
-(3, 'title message', 'body message');
+(2, '123', 'body message'),
+(3, 'title message', 'body message'),
+(4, 'title message', 'body message'),
+(5, 'title message', 'body message'),
+(6, 'title android', 'body android'),
+(7, 'title ios', 'body ios'),
+(8, 'title message', 'body message');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -89,13 +93,13 @@ ALTER TABLE `fcm_notifi`
 -- AUTO_INCREMENT cho bảng `fcm_info`
 --
 ALTER TABLE `fcm_info`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `fcm_notifi`
 --
 ALTER TABLE `fcm_notifi`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
