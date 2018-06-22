@@ -11,13 +11,15 @@
 
   $path_to_fcm = 'https://fcm.googleapis.com/fcm/send';
   $server_key = 'AAAAPe_-vpM:APA91bG56uQ5iYiJ5n7xrZq4BxvlTrRzzQF3tLWPdNwXSJPgy3ESHXn1KP-isI-bg3mExgZzpPc5BwwLE4Kb7XUAjXc_y3jOFctaCRyAFRsWCEQrPAzs0_v9gi539cT7mhk4Vb3vdWYV';
-  $sql = "select token from fcm_info";
+  $sql = "select token, username from fcm_info";
   $result = mysqli_query($con,$sql);
   $options = "";
+  $username = "";
 
   while($row = mysqli_fetch_array($result))
   {
-    $options = $options."<option>$row[token]</option>";
+    $options = $options."<option >$row[token]</option>";
+    $username = $username."<option value=$row[token]>$row[username]</option>";
   }
   $row = mysqli_fetch_row($result);
   $key = isset($_POST['DropDownTimezone']) ? $_POST['DropDownTimezone'] : $row[0];
@@ -59,7 +61,7 @@ if(!empty($_POST))
 <!-- HTML -->
 <html lang="en">
 <head>
-  <title>Saigon Ship</title>
+  <title>test</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -72,7 +74,7 @@ if(!empty($_POST))
 <body>
 
 <div class="container">
-  <h2>Saigon Ship</h2>
+  <h2>test</h2>
   <ul class="nav nav-tabs">
     <li class="active"><a href="#home"><i style="font-size:24px" class="fa">&#xf015;</i></a></li>
     <li><a href="#ios"><i style="font-size:24px" class="fa">&#xf179;</i></a></li>
@@ -84,7 +86,7 @@ if(!empty($_POST))
 
     <!-- Tab All -->
     <div id="home" class="tab-pane fade in active">
-      <h3>Notification All Device</h3>
+      <h3>Send To All Device</h3>
       <form id="tab" action="send_all_notif.php" method='post'>
             <label>Title</label>
             <input type="text" name="title" class="input-xlarge" style="height: 35px;">
@@ -99,7 +101,7 @@ if(!empty($_POST))
 
     <!-- Tab IOS -->
     <div id="ios" class="tab-pane fade">
-      <h3>Notification IOS</h3>
+      <h3>Send To IOS Device</h3>
       <form id="tab" action="send_ios_notifi.php" method='post'>
             <label>Title</label>
             <input type="text" name="title" class="input-xlarge" style="height: 35px;">
@@ -114,7 +116,7 @@ if(!empty($_POST))
 
     <!-- Tab Android -->
     <div id="android" class="tab-pane fade">
-      <h3>Notification Android</h3>
+      <h3>Send To Android Device</h3>
       <form id="tab" action="send_android_notifi.php" method='post'>
             <label>Title</label>
             <input type="text" name="title" class="input-xlarge" style="height: 35px;">
@@ -129,7 +131,7 @@ if(!empty($_POST))
 
     <!-- Tab User -->
     <div id="user" class="tab-pane fade">
-      <h3>Notification User</h3>
+      <h3>Send To Each User</h3>
       <form id="tab" action="user_send_notif.php" method='post'>
             <label>Title</label>
             <input type="text" name="title" class="input-xlarge" style="height: 35px;">
@@ -137,7 +139,9 @@ if(!empty($_POST))
             <input type="text" name="body" class="input-xlarge" style="height: 35px;">
             <label>Chọn Người Gửi</label>
             <select name="DropDownTimezone" id="DropDownTimezone" class="input-xlarge">
-              <?php echo $options;?>
+              <?php
+                echo $username ;
+              ?>
             </select>
           	<div>
         	    <button type="submit" name="Submit" class="btn btn-primary">Send</button>
