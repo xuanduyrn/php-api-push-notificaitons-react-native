@@ -10,7 +10,8 @@
   $tokenAndroid = $obj['tokenAndroid'];
   $tokenIOS = $obj['tokenIOS'];
   $userName = $obj['userName'];
-  $Sql_Query = "insert into fcm_info (token, tokenAndroid, tokenIOS, userName) values ('$token', '$tokenAndroid', '$tokenIOS', '$userName')";
+  $DateTime = $obj['DateTime'];
+  $Sql_Query = "insert into fcm_info (token, tokenAndroid, tokenIOS, userName, DateTime) values ('$token', '$tokenAndroid', '$tokenIOS', '$userName', '$DateTime')";
 
   if(mysqli_query($con,$Sql_Query)){
     $MSG = 'Record Successfully Inserted Into MySQL Database.' ;
